@@ -1,0 +1,54 @@
+name: ros1
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        distro:
+          - noetic
+    container:
+      image: ros:${{ matrix.distro }}-ros-base
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      ROS_DISTRO: ${{ matrix.distro }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ROS 1 dependencies
+        shell: bash
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            build-essential \
+            cmake \
+            libcurl4-openssl-dev \
+            libprotobuf-dev \
+            protobuf-compiler \
+            python3-requests \
+            ros-${ROS_DISTRO}-catkin \
+            ros-${ROS_DISTRO}-geometry-msgs \
+            ros-${ROS_DISTRO}-message-generation \
+            ros-${ROS_DISTRO}-message-runtime \
+            ros-${ROS_DISTRO}-roscpp \
+            ros-${ROS_DISTRO}-rospy \
+            ros-${ROS_DISTRO}-sensor-msgs \
+            ros-${ROS_DISTRO}-std-msgs
+
+      - name: Build ROS 1 workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          source /opt/ros/${ROS_DISTRO}/setup.bash
+          cd ros1
+          catkin_make --cmake-args -DCMAKE_BUILD_TYPE=Release

@@ -1,0 +1,137 @@
+// Protocol buffer schema for Zadar UDP radar data.
+
+syntax = "proto3";
+
+package zadar_pb;
+
+message RadarPoint {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float snr = 4;
+    float range = 5;
+    float noise = 6;
+    float doppler = 7;
+    float adjusted_doppler = 8;
+    uint32 frame_num = 9;
+    bool is_static = 10;
+    bool removed = 11;
+    uint32 subframe_index = 12;
+    uint32 fence_id = 13;
+    float power = 14;
+}
+
+message RadarScanHeader {
+    uint32 seq = 1;
+    uint64 stamp = 2;
+    string frame_id = 3;
+}
+
+message RadarScan {
+    RadarScanHeader header = 1;
+    repeated RadarPoint points = 2;
+    uint64 width = 3;
+    uint64 height = 4;
+    bool is_dense = 5;
+}
+
+message ZadarOdometry {
+    reserved 1, 2, 3, 9, 10, 11, 12;
+    float phi = 4;
+    float psi = 5;
+    float theta = 6;
+    float raw_vx = 7;
+    float raw_vy = 8;
+    uint32 frame_num = 13;
+    float raw_vz = 14;
+    float omega_x = 15;
+    float omega_y = 16;
+    float omega_z = 17;
+    float vx = 18;
+    float vy = 19;
+    float vz = 20;
+    uint64 stamp = 21;
+}
+
+message ZadarVertex {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message ZadarClusters {
+    repeated ZadarCluster clusters = 1;
+    uint64 stamp = 2;
+}
+
+message ZadarTracks {
+    repeated ZadarTrack tracks = 1;
+    uint32 frame_num = 2;
+    uint64 stamp = 3;
+}
+
+message ZadarCluster {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float doppler = 4;
+    float snr = 5;
+    float noise = 6;
+    uint32 frame_num = 7;
+    uint32 cluster_id = 8;
+    uint32 subframe_index = 9;
+    bool is_static = 10;
+    float d_min = 11;
+    float d_max = 12;
+    float r_min = 13;
+    float r_max = 14;
+    float lambda1 = 15;
+    float lambda2 = 16;
+    float lambda3 = 17;
+    uint32 num_points = 18;
+    repeated ZadarVertex vertices = 19;
+    RadarScan scan = 20;
+}
+
+message ZadarTrack {
+    uint32 track_id = 1;
+    float x = 2;
+    float y = 3;
+    float z = 4;
+    float vx = 5;
+    float vy = 6;
+    float vz = 7;
+    float ax = 8;
+    float ay = 9;
+    float az = 10;
+    float yaw = 11;
+    float speed = 12;
+    uint32 num_points = 13;
+    uint32 latest_observed_frame_num = 14;
+    uint32 latest_cluster_id = 15;
+    uint32 fence_id = 16;
+    uint32 state = 17;
+    RadarScan scan = 18;
+    uint32 classification_output = 19;
+}
+
+message ZadarFrame {
+    ZadarOdometry odometry = 1;
+    RadarScan radar_scan = 2;
+    repeated ZadarCluster clusters = 3;
+    repeated ZadarTrack tracks = 4;
+}
+
+message ZadarImu {
+    RadarScanHeader header = 1;
+    double linear_acceleration_x = 2;
+    double linear_acceleration_y = 3;
+    double linear_acceleration_z = 4;
+    double gyro_acceleration_x = 5;
+    double gyro_acceleration_y = 6;
+    double gyro_acceleration_z = 7;
+    double temperature_celsius = 8;
+    uint64 imu_diag_ts = 9;
+    uint64 imu_accel_ts = 10;
+    uint64 imu_gyro_ts = 11;
+}

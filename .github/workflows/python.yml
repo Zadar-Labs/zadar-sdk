@@ -1,0 +1,44 @@
+name: python
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-24.04
+        python-version:
+          - "3.8"
+          - "3.10"
+          - "3.12"
+    runs-on: ${{ matrix.os }}
+    name: validate (${{ matrix.os }}, py${{ matrix.python-version }})
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install Python SDK
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ./sdk/python
+
+      - name: Validate imports and examples
+        run: |
+          python -m compileall sdk/python examples/python
+          python -c "import zadar_udp, zadar_webapi"
+          python examples/python/zadar_udp/radar_data_example.py --help > /dev/null
+          python examples/python/zadar_webapi/sensor_info_example.py --help > /dev/null
