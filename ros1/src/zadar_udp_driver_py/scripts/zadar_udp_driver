@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+
+from zadar_udp_driver_py.node import main
+
+
+if __name__ == "__main__":
+    main()

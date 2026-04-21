@@ -1,0 +1,17 @@
+add_subdirectory(zadar_udp)
+
+if(ZADAR_BUILD_WEBAPI_CPP)
+  add_subdirectory(zadar_webapi)
+else()
+  message(STATUS "Skipping Zadar Web API C++ examples because ZADAR_BUILD_WEBAPI_CPP=OFF.")
+endif()
+
+if(TARGET zadar_udp_cpp AND TARGET zadar_webapi_cpp)
+  add_executable(api_example api_example.cpp)
+  target_include_directories(api_example PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+  target_link_libraries(api_example PRIVATE zadar_udp_cpp zadar_webapi_cpp)
+elseif(ZADAR_BUILD_WEBAPI_CPP)
+  message(STATUS "Skipping C++ end-to-end API example because the required SDK targets were not built.")
+else()
+  message(STATUS "Skipping C++ end-to-end API example because ZADAR_BUILD_WEBAPI_CPP=OFF.")
+endif()
