@@ -1,0 +1,42 @@
+# CMake / native builds
+/build/
+/cmake-build-*/
+/compile_commands.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ROS 1
+/ros1/build/
+/ros1/devel/
+/ros1/install/
+/ros1/log/
+/ros1/.catkin_workspace
+/ros1/*.bag
+/ros1/*.bag.active
+
+# ROS 2
+/ros2/build/
+/ros2/install/
+/ros2/log/
+/ros2/**/*.db3
+/ros2/**/*.db3-shm
+/ros2/**/*.db3-wal
+/ros2/**/*.mcap
+/ros2/**/metadata.yaml
+
+# Local artifacts
+*.zip
+*.tar.gz

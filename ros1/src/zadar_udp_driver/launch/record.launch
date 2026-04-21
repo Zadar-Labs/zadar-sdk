@@ -1,0 +1,89 @@
+<launch>
+  <arg name="driver_package" default="zadar_udp_driver"/>
+  <arg name="driver_executable" default="zadar_udp_driver_node"/>
+  <arg name="namespace" default="zadar"/>
+  <arg name="sensor_name" default=""/>
+  <arg name="node_namespace" default="$(eval '/'.join([part for part in [str(arg('namespace')).strip('/'), str(arg('sensor_name')).strip('/')] if part]))"/>
+  <arg name="params_file" default="$(find zadar_udp_driver)/config/driver.yaml"/>
+  <arg name="udp_bind_address" default=""/>
+  <arg name="bind_address" default=""/>
+  <arg name="sensor_hostname" default=""/>
+  <arg name="host_ip" default=""/>
+  <arg name="data_port" default="0"/>
+  <arg name="imu_port" default="0"/>
+  <arg name="webapi_port" default="8080"/>
+  <arg name="webapi_timeout_sec" default="2.0"/>
+  <arg name="running_mode" default="-1"/>
+  <arg name="frame_id" default="$(eval str(arg('sensor_name')).strip('/') if str(arg('sensor_name')).strip('/') else (str(arg('namespace')).strip('/').replace('/', '_') if str(arg('namespace')).strip('/') else 'zadar'))"/>
+  <arg name="publish_scan" default="true"/>
+  <arg name="publish_clusters" default="true"/>
+  <arg name="publish_tracks" default="true"/>
+  <arg name="publish_odometry" default="true"/>
+  <arg name="publish_imu" default="true"/>
+  <arg name="radar_socket_buffer_bytes" default="67108864"/>
+  <arg name="imu_socket_buffer_bytes" default="4194304"/>
+  <arg name="max_buffered_frames" default="128"/>
+  <arg name="frame_timeout_sec" default="1.0"/>
+  <arg name="socket_timeout_sec" default="0.25"/>
+  <arg name="generated_python_dir" default=""/>
+  <arg name="bag_file" default="zadar_udp_recording"/>
+  <arg
+    name="resolved_bag_file"
+    default="$(eval str(arg('bag_file')) if str(arg('bag_file')).startswith('/') else env('PWD').rstrip('/') + '/' + str(arg('bag_file')))"/>
+  <arg name="record_points" default="true"/>
+  <arg name="record_clusters" default="true"/>
+  <arg name="record_tracks" default="true"/>
+  <arg name="record_odometry" default="true"/>
+  <arg name="record_imu" default="true"/>
+
+  <arg name="points_topic" default="$(eval ('/' + arg('node_namespace') + '/points') if arg('node_namespace') else '/points')"/>
+  <arg name="clusters_topic" default="$(eval ('/' + arg('node_namespace') + '/clusters') if arg('node_namespace') else '/clusters')"/>
+  <arg name="tracks_topic" default="$(eval ('/' + arg('node_namespace') + '/tracks') if arg('node_namespace') else '/tracks')"/>
+  <arg name="odometry_topic" default="$(eval ('/' + arg('node_namespace') + '/odometry') if arg('node_namespace') else '/odometry')"/>
+  <arg name="imu_topic" default="$(eval ('/' + arg('node_namespace') + '/imu') if arg('node_namespace') else '/imu')"/>
+  <arg
+    name="record_topics"
+    default="$(eval ' '.join([topic for enabled, topic in [
+      (str(arg('record_points')).lower() in ['1', 'true', 'yes', 'on'], arg('points_topic')),
+      (str(arg('record_clusters')).lower() in ['1', 'true', 'yes', 'on'], arg('clusters_topic')),
+      (str(arg('record_tracks')).lower() in ['1', 'true', 'yes', 'on'], arg('tracks_topic')),
+      (str(arg('record_odometry')).lower() in ['1', 'true', 'yes', 'on'], arg('odometry_topic')),
+      (str(arg('record_imu')).lower() in ['1', 'true', 'yes', 'on'], arg('imu_topic')),
+    ] if enabled]))"/>
+
+  <include file="$(find zadar_udp_driver)/launch/driver.launch">
+    <arg name="driver_package" value="$(arg driver_package)"/>
+    <arg name="driver_executable" value="$(arg driver_executable)"/>
+    <arg name="namespace" value="$(arg namespace)"/>
+    <arg name="sensor_name" value="$(arg sensor_name)"/>
+    <arg name="params_file" value="$(arg params_file)"/>
+    <arg name="udp_bind_address" value="$(arg udp_bind_address)"/>
+    <arg name="bind_address" value="$(arg bind_address)"/>
+    <arg name="sensor_hostname" value="$(arg sensor_hostname)"/>
+    <arg name="host_ip" value="$(arg host_ip)"/>
+    <arg name="data_port" value="$(arg data_port)"/>
+    <arg name="imu_port" value="$(arg imu_port)"/>
+    <arg name="webapi_port" value="$(arg webapi_port)"/>
+    <arg name="webapi_timeout_sec" value="$(arg webapi_timeout_sec)"/>
+    <arg name="running_mode" value="$(arg running_mode)"/>
+    <arg name="frame_id" value="$(arg frame_id)"/>
+    <arg name="publish_scan" value="$(arg publish_scan)"/>
+    <arg name="publish_clusters" value="$(arg publish_clusters)"/>
+    <arg name="publish_tracks" value="$(arg publish_tracks)"/>
+    <arg name="publish_odometry" value="$(arg publish_odometry)"/>
+    <arg name="publish_imu" value="$(arg publish_imu)"/>
+    <arg name="radar_socket_buffer_bytes" value="$(arg radar_socket_buffer_bytes)"/>
+    <arg name="imu_socket_buffer_bytes" value="$(arg imu_socket_buffer_bytes)"/>
+    <arg name="max_buffered_frames" value="$(arg max_buffered_frames)"/>
+    <arg name="frame_timeout_sec" value="$(arg frame_timeout_sec)"/>
+    <arg name="socket_timeout_sec" value="$(arg socket_timeout_sec)"/>
+    <arg name="generated_python_dir" value="$(arg generated_python_dir)"/>
+  </include>
+
+  <node
+    pkg="rosbag"
+    type="record"
+    name="zadar_udp_record"
+    output="screen"
+    args="$(eval '-O ' + arg('resolved_bag_file') + (' ' + arg('record_topics') if arg('record_topics') else ''))"/>
+</launch>

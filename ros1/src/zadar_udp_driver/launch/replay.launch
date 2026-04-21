@@ -1,0 +1,25 @@
+<launch>
+  <arg name="bag_file"/>
+  <arg
+    name="resolved_bag_file"
+    default="$(eval str(arg('bag_file')) if str(arg('bag_file')).startswith('/') else env('PWD').rstrip('/') + '/' + str(arg('bag_file')))"/>
+  <arg name="rate" default="1.0"/>
+  <arg name="clock" default="false"/>
+  <arg name="loop" default="false"/>
+  <arg name="start_paused" default="false"/>
+
+  <param if="$(arg clock)" name="/use_sim_time" value="true"/>
+
+  <node
+    pkg="rosbag"
+    type="play"
+    name="zadar_udp_replay"
+    output="screen"
+    args="$(eval
+      ('--clock ' if str(arg('clock')).lower() in ['1', 'true', 'yes', 'on'] else '') +
+      ('--loop ' if str(arg('loop')).lower() in ['1', 'true', 'yes', 'on'] else '') +
+      ('--pause ' if str(arg('start_paused')).lower() in ['1', 'true', 'yes', 'on'] else '') +
+      ('-r ' + str(arg('rate')) + ' ' if str(arg('rate')).strip() else '') +
+      arg('resolved_bag_file')
+    )"/>
+</launch>

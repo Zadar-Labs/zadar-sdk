@@ -1,0 +1,13 @@
+{
+  "package_title": "Zadar UDP Sensor SDK",
+  "bundle_name": "zadar_sdk_udp",
+  "version": "0.1.1",
+  "channel": "release",
+  "profile": "udp_customer_sdk",
+  "created_utc": "2026-04-20T23:48:25.788986+00:00",
+  "supported_sensor_family": [
+    "zPRIME2.0",
+    "zPRIME3.0",
+    "zPULSE"
+  ]
+}

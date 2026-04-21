@@ -1,0 +1,34 @@
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+      - internal-only
+  categories:
+    - title: Breaking Changes
+      labels:
+        - breaking
+        - semver-major
+    - title: ROS 1
+      labels:
+        - ros1
+    - title: ROS 2
+      labels:
+        - ros2
+    - title: SDK
+      labels:
+        - sdk
+        - api
+    - title: Examples
+      labels:
+        - examples
+    - title: Documentation
+      labels:
+        - docs
+    - title: Packaging And Releases
+      labels:
+        - packaging
+        - release
+        - ci
+    - title: Other Changes
+      labels:
+        - "*"

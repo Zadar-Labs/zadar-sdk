@@ -1,0 +1,39 @@
+name: cpp
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-24.04
+    runs-on: ${{ matrix.os }}
+    name: cpp-${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install C++ dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential \
+            cmake \
+            libcurl4-openssl-dev \
+            libprotobuf-dev \
+            protobuf-compiler
+
+      - name: Configure
+        run: cmake -S . -B build -DZADAR_BUILD_WEBAPI_CPP=ON
+
+      - name: Build
+        run: cmake --build build --parallel 2
