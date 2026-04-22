@@ -31,7 +31,6 @@ The SDK includes:
 
 - [Build Status](#build-status)
 - [Start Here](#start-here)
-- [IMU Output](#imu-output)
 - [Quick Start](#quick-start)
   - [Python Examples](#python-examples)
   - [C++ Examples](#c-examples)
@@ -57,12 +56,6 @@ Choose the entrypoint that matches your integration:
 - [ROS 1 Sample Configuration](ros1/config/README.md)
 - [ROS 2 Sample Configuration](ros2/config/README.md)
 - [Architecture Notes](docs/architecture.md)
-
-## IMU Output
-
-- `imu` provides raw onboard accelerometer and gyroscope measurements from the internal MEMS sensor.
-- It is intended for low-level inspection and installation validation, including static mounting checks from accelerometer gravity measurements.
-- It is not a GNSS/INS output, and no GNSS/GPS data is used or required.
 
 ## Quick Start
 
@@ -117,7 +110,7 @@ Run an odometry example from the radar stream:
   --frame-limit 3
 ```
 
-Run the IMU example when raw onboard accelerometer and gyroscope packets are needed:
+Run the raw-IMU example when raw onboard accelerometer and gyroscope packets are needed:
 
 ```bash
 ./build/examples/cpp/zadar_udp/imu_data_example \
