@@ -77,7 +77,7 @@ python3 examples/python/zadar_udp/odometry_example.py \
   --frame-limit 3
 ```
 
-Run the IMU example:
+Gather raw-IMU data:
 
 ```bash
 python3 examples/python/zadar_udp/imu_data_example.py \
@@ -110,7 +110,7 @@ Run an odometry example from the radar stream:
   --frame-limit 3
 ```
 
-Run the raw-IMU example when raw onboard accelerometer and gyroscope packets are needed:
+Gather raw-IMU data:
 
 ```bash
 ./build/examples/cpp/zadar_udp/imu_data_example \
