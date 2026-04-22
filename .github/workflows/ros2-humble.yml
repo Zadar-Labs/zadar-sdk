@@ -1,0 +1,62 @@
+name: ros2-humble
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ros2-humble
+    runs-on: ubuntu-22.04
+    container:
+      image: ros:humble-ros-base
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      ROS_DISTRO: humble
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ROS 2 dependencies
+        shell: bash
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            build-essential \
+            cmake \
+            libcurl4-openssl-dev \
+            libprotobuf-dev \
+            protobuf-compiler \
+            python3-colcon-common-extensions \
+            python3-requests \
+            ros-${ROS_DISTRO}-ament-cmake \
+            ros-${ROS_DISTRO}-ament-cmake-python \
+            ros-${ROS_DISTRO}-ament-index-python \
+            ros-${ROS_DISTRO}-builtin-interfaces \
+            ros-${ROS_DISTRO}-geometry-msgs \
+            ros-${ROS_DISTRO}-launch \
+            ros-${ROS_DISTRO}-launch-ros \
+            ros-${ROS_DISTRO}-rclcpp \
+            ros-${ROS_DISTRO}-rclpy \
+            ros-${ROS_DISTRO}-rosidl-default-generators \
+            ros-${ROS_DISTRO}-rosidl-default-runtime \
+            ros-${ROS_DISTRO}-sensor-msgs \
+            ros-${ROS_DISTRO}-std-msgs
+
+      - name: Build ROS 2 workspace
+        shell: bash
+        run: |
+          set -eo pipefail
+          export AMENT_TRACE_SETUP_FILES="${AMENT_TRACE_SETUP_FILES:-}"
+          source /opt/ros/${ROS_DISTRO}/setup.bash
+          set -u
+          cd ros2
+          colcon build \
+            --base-paths src \
+            --packages-select zadar_msgs zadar_udp_driver_py zadar_udp_driver \
+            --event-handlers console_direct+ \
+            --symlink-install
