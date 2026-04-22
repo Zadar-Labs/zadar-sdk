@@ -14,8 +14,8 @@ This is the SDK and driver bundle for Zadar Ethernet sensors.
 
 Supported sensor family:
 
-- `zPRIME2.0`
-- `zPRIME3.0`
+- `zPRIME 2.0`
+- `zPRIME 3.0`
 - `zPULSE`
 
 The SDK includes:
