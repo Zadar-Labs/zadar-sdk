@@ -19,6 +19,7 @@ message RadarPoint {
     uint32 subframe_index = 12;
     uint32 fence_id = 13;
     float power = 14;
+    float rcs = 15;
 }
 
 message RadarScanHeader {

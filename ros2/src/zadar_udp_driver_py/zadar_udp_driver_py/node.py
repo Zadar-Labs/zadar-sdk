@@ -8,6 +8,7 @@ import threading
 from typing import List, Optional
 
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from sensor_msgs.msg import Imu, PointCloud2
 
@@ -58,7 +59,7 @@ class ZadarUdpDriverNode(Node):
         self.declare_parameter("data_port", 0)
         self.declare_parameter("imu_port", 0)
         self.declare_parameter("webapi_port", DEFAULT_WEBAPI_PORT)
-        self.declare_parameter("webapi_timeout_sec", 2.0)
+        self.declare_parameter("webapi_timeout_sec", 5.0)
         self.declare_parameter("running_mode", -1)
         self.declare_parameter("frame_id", "zadar")
         self.declare_parameter("publish_scan", True)
@@ -531,11 +532,12 @@ def main(args: Optional[List[str]] = None) -> None:
     node = ZadarUdpDriverNode()
     try:
         rclpy.spin(node)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, ExternalShutdownException):
         pass
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == "__main__":

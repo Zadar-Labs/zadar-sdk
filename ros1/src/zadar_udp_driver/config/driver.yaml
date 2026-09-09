@@ -4,7 +4,7 @@ host_ip: ""
 data_port: 0
 imu_port: 0
 webapi_port: 8080
-webapi_timeout_sec: 2.0
+webapi_timeout_sec: 5.0
 running_mode: -1
 frame_id: zadar
 publish_scan: true

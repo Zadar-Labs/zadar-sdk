@@ -32,7 +32,7 @@
 
 namespace {
 
-constexpr std::size_t kPointStep = 50U;
+constexpr std::size_t kPointStep = 54U;
 
 ros::Time ros_time_from_ns(std::uint64_t timestamp_ns) {
   return ros::Time(
@@ -112,6 +112,7 @@ sensor_msgs::PointCloud2 radar_scan_to_pointcloud2(
       point_field("subframe_index", 38U, sensor_msgs::PointField::UINT32),
       point_field("fence_id", 42U, sensor_msgs::PointField::UINT32),
       point_field("power", 46U, sensor_msgs::PointField::FLOAT32),
+      point_field("rcs", 50U, sensor_msgs::PointField::FLOAT32),
   };
   message.point_step = kPointStep;
 
@@ -150,6 +151,7 @@ sensor_msgs::PointCloud2 radar_scan_to_pointcloud2(
     const std::uint32_t subframe_index = point.subframe_index();
     const std::uint32_t fence_id = point.fence_id();
     const float power = point.power();
+    const float rcs = point.rcs();
 
     write_value(message.data, base + 0U, x);
     write_value(message.data, base + 4U, y);
@@ -165,6 +167,7 @@ sensor_msgs::PointCloud2 radar_scan_to_pointcloud2(
     write_value(message.data, base + 38U, subframe_index);
     write_value(message.data, base + 42U, fence_id);
     write_value(message.data, base + 46U, power);
+    write_value(message.data, base + 50U, rcs);
   }
 
   return message;
@@ -340,7 +343,7 @@ class ZadarUdpDriverNode {
     private_nh_.param("data_port", data_port, 0);
     private_nh_.param("imu_port", imu_port, 0);
     private_nh_.param("webapi_port", webapi_port, static_cast<int>(zadar::webapi::kDefaultWebApiPort));
-    private_nh_.param("webapi_timeout_sec", webapi_timeout_sec_, 2.0);
+    private_nh_.param("webapi_timeout_sec", webapi_timeout_sec_, 5.0);
     private_nh_.param("running_mode", running_mode_, -1);
     private_nh_.param("frame_id", frame_id_, std::string("zadar"));
     private_nh_.param("publish_scan", publish_scan_, true);
@@ -905,7 +908,7 @@ class ZadarUdpDriverNode {
   int running_mode_ = -1;
   double frame_timeout_sec_ = 0.0;
   double socket_timeout_sec_ = 0.0;
-  double webapi_timeout_sec_ = 2.0;
+  double webapi_timeout_sec_ = 5.0;
 
   bool publish_scan_ = true;
   bool publish_clusters_ = true;

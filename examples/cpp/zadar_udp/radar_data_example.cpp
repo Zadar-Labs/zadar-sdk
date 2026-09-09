@@ -52,7 +52,8 @@ int main(int argc, char** argv) {
             << ", y=" << point.y()
             << ", z=" << point.z()
             << ", doppler=" << point.doppler()
-            << ", snr=" << point.snr() << '\n';
+            << ", snr=" << point.snr()
+            << ", rcs=" << point.rcs() << '\n';
       }
       ++processed_frames;
     }

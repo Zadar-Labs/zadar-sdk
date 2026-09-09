@@ -12,7 +12,7 @@
   <arg name="data_port" default="0"/>
   <arg name="imu_port" default="0"/>
   <arg name="webapi_port" default="8080"/>
-  <arg name="webapi_timeout_sec" default="2.0"/>
+  <arg name="webapi_timeout_sec" default="5.0"/>
   <arg name="running_mode" default="-1"/>
   <arg name="frame_id" default="$(eval str(arg('sensor_name')).strip('/') if str(arg('sensor_name')).strip('/') else (str(arg('namespace')).strip('/').replace('/', '_') if str(arg('namespace')).strip('/') else 'zadar'))"/>
   <arg name="publish_scan" default="true"/>

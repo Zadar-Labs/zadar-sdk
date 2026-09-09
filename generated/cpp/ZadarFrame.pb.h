@@ -31,7 +31,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
-#define PROTOBUF_INTERNAL_EXPORT_protobuf_ZadarFrame_2eproto 
+#define PROTOBUF_INTERNAL_EXPORT_protobuf_ZadarFrame_2eproto
 
 namespace protobuf_ZadarFrame_2eproto {
 // Internal implementation detail -- do not use these members.
@@ -270,6 +270,12 @@ class RadarPoint : public ::google::protobuf::Message /* @@protoc_insertion_poin
   float power() const;
   void set_power(float value);
 
+  // float rcs = 15;
+  void clear_rcs();
+  static const int kRcsFieldNumber = 15;
+  float rcs() const;
+  void set_rcs(float value);
+
   // @@protoc_insertion_point(class_scope:zadar_pb.RadarPoint)
  private:
 
@@ -288,6 +294,7 @@ class RadarPoint : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::uint32 subframe_index_;
   ::google::protobuf::uint32 fence_id_;
   float power_;
+  float rcs_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ZadarFrame_2eproto::TableStruct;
 };
@@ -1939,7 +1946,7 @@ inline float RadarPoint::x() const {
   return x_;
 }
 inline void RadarPoint::set_x(float value) {
-  
+
   x_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.x)
 }
@@ -1953,7 +1960,7 @@ inline float RadarPoint::y() const {
   return y_;
 }
 inline void RadarPoint::set_y(float value) {
-  
+
   y_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.y)
 }
@@ -1967,7 +1974,7 @@ inline float RadarPoint::z() const {
   return z_;
 }
 inline void RadarPoint::set_z(float value) {
-  
+
   z_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.z)
 }
@@ -1981,7 +1988,7 @@ inline float RadarPoint::snr() const {
   return snr_;
 }
 inline void RadarPoint::set_snr(float value) {
-  
+
   snr_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.snr)
 }
@@ -1995,7 +2002,7 @@ inline float RadarPoint::range() const {
   return range_;
 }
 inline void RadarPoint::set_range(float value) {
-  
+
   range_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.range)
 }
@@ -2009,7 +2016,7 @@ inline float RadarPoint::noise() const {
   return noise_;
 }
 inline void RadarPoint::set_noise(float value) {
-  
+
   noise_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.noise)
 }
@@ -2023,7 +2030,7 @@ inline float RadarPoint::doppler() const {
   return doppler_;
 }
 inline void RadarPoint::set_doppler(float value) {
-  
+
   doppler_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.doppler)
 }
@@ -2037,7 +2044,7 @@ inline float RadarPoint::adjusted_doppler() const {
   return adjusted_doppler_;
 }
 inline void RadarPoint::set_adjusted_doppler(float value) {
-  
+
   adjusted_doppler_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.adjusted_doppler)
 }
@@ -2051,7 +2058,7 @@ inline ::google::protobuf::uint32 RadarPoint::frame_num() const {
   return frame_num_;
 }
 inline void RadarPoint::set_frame_num(::google::protobuf::uint32 value) {
-  
+
   frame_num_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.frame_num)
 }
@@ -2065,7 +2072,7 @@ inline bool RadarPoint::is_static() const {
   return is_static_;
 }
 inline void RadarPoint::set_is_static(bool value) {
-  
+
   is_static_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.is_static)
 }
@@ -2079,7 +2086,7 @@ inline bool RadarPoint::removed() const {
   return removed_;
 }
 inline void RadarPoint::set_removed(bool value) {
-  
+
   removed_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.removed)
 }
@@ -2093,7 +2100,7 @@ inline ::google::protobuf::uint32 RadarPoint::subframe_index() const {
   return subframe_index_;
 }
 inline void RadarPoint::set_subframe_index(::google::protobuf::uint32 value) {
-  
+
   subframe_index_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.subframe_index)
 }
@@ -2107,7 +2114,7 @@ inline ::google::protobuf::uint32 RadarPoint::fence_id() const {
   return fence_id_;
 }
 inline void RadarPoint::set_fence_id(::google::protobuf::uint32 value) {
-  
+
   fence_id_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.fence_id)
 }
@@ -2121,9 +2128,23 @@ inline float RadarPoint::power() const {
   return power_;
 }
 inline void RadarPoint::set_power(float value) {
-  
+
   power_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.power)
+}
+
+// float rcs = 15;
+inline void RadarPoint::clear_rcs() {
+  rcs_ = 0;
+}
+inline float RadarPoint::rcs() const {
+  // @@protoc_insertion_point(field_get:zadar_pb.RadarPoint.rcs)
+  return rcs_;
+}
+inline void RadarPoint::set_rcs(float value) {
+
+  rcs_ = value;
+  // @@protoc_insertion_point(field_set:zadar_pb.RadarPoint.rcs)
 }
 
 // -------------------------------------------------------------------
@@ -2139,7 +2160,7 @@ inline ::google::protobuf::uint32 RadarScanHeader::seq() const {
   return seq_;
 }
 inline void RadarScanHeader::set_seq(::google::protobuf::uint32 value) {
-  
+
   seq_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarScanHeader.seq)
 }
@@ -2153,7 +2174,7 @@ inline ::google::protobuf::uint64 RadarScanHeader::stamp() const {
   return stamp_;
 }
 inline void RadarScanHeader::set_stamp(::google::protobuf::uint64 value) {
-  
+
   stamp_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarScanHeader.stamp)
 }
@@ -2167,13 +2188,13 @@ inline const ::std::string& RadarScanHeader::frame_id() const {
   return frame_id_.GetNoArena();
 }
 inline void RadarScanHeader::set_frame_id(const ::std::string& value) {
-  
+
   frame_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:zadar_pb.RadarScanHeader.frame_id)
 }
 #if LANG_CXX11
 inline void RadarScanHeader::set_frame_id(::std::string&& value) {
-  
+
   frame_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
   // @@protoc_insertion_point(field_set_rvalue:zadar_pb.RadarScanHeader.frame_id)
@@ -2181,31 +2202,31 @@ inline void RadarScanHeader::set_frame_id(::std::string&& value) {
 #endif
 inline void RadarScanHeader::set_frame_id(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  
+
   frame_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:zadar_pb.RadarScanHeader.frame_id)
 }
 inline void RadarScanHeader::set_frame_id(const char* value, size_t size) {
-  
+
   frame_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:zadar_pb.RadarScanHeader.frame_id)
 }
 inline ::std::string* RadarScanHeader::mutable_frame_id() {
-  
+
   // @@protoc_insertion_point(field_mutable:zadar_pb.RadarScanHeader.frame_id)
   return frame_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* RadarScanHeader::release_frame_id() {
   // @@protoc_insertion_point(field_release:zadar_pb.RadarScanHeader.frame_id)
-  
+
   return frame_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void RadarScanHeader::set_allocated_frame_id(::std::string* frame_id) {
   if (frame_id != NULL) {
-    
+
   } else {
-    
+
   }
   frame_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), frame_id);
   // @@protoc_insertion_point(field_set_allocated:zadar_pb.RadarScanHeader.frame_id)
@@ -2236,13 +2257,13 @@ inline const ::zadar_pb::RadarScanHeader& RadarScan::header() const {
 }
 inline ::zadar_pb::RadarScanHeader* RadarScan::release_header() {
   // @@protoc_insertion_point(field_release:zadar_pb.RadarScan.header)
-  
+
   ::zadar_pb::RadarScanHeader* temp = header_;
   header_ = NULL;
   return temp;
 }
 inline ::zadar_pb::RadarScanHeader* RadarScan::mutable_header() {
-  
+
   if (header_ == NULL) {
     auto* p = CreateMaybeMessage<::zadar_pb::RadarScanHeader>(GetArenaNoVirtual());
     header_ = p;
@@ -2261,9 +2282,9 @@ inline void RadarScan::set_allocated_header(::zadar_pb::RadarScanHeader* header)
       header = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, header, submessage_arena);
     }
-    
+
   } else {
-    
+
   }
   header_ = header;
   // @@protoc_insertion_point(field_set_allocated:zadar_pb.RadarScan.header)
@@ -2308,7 +2329,7 @@ inline ::google::protobuf::uint64 RadarScan::width() const {
   return width_;
 }
 inline void RadarScan::set_width(::google::protobuf::uint64 value) {
-  
+
   width_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarScan.width)
 }
@@ -2322,7 +2343,7 @@ inline ::google::protobuf::uint64 RadarScan::height() const {
   return height_;
 }
 inline void RadarScan::set_height(::google::protobuf::uint64 value) {
-  
+
   height_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarScan.height)
 }
@@ -2336,7 +2357,7 @@ inline bool RadarScan::is_dense() const {
   return is_dense_;
 }
 inline void RadarScan::set_is_dense(bool value) {
-  
+
   is_dense_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.RadarScan.is_dense)
 }
@@ -2354,7 +2375,7 @@ inline float ZadarOdometry::phi() const {
   return phi_;
 }
 inline void ZadarOdometry::set_phi(float value) {
-  
+
   phi_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.phi)
 }
@@ -2368,7 +2389,7 @@ inline float ZadarOdometry::psi() const {
   return psi_;
 }
 inline void ZadarOdometry::set_psi(float value) {
-  
+
   psi_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.psi)
 }
@@ -2382,7 +2403,7 @@ inline float ZadarOdometry::theta() const {
   return theta_;
 }
 inline void ZadarOdometry::set_theta(float value) {
-  
+
   theta_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.theta)
 }
@@ -2396,7 +2417,7 @@ inline float ZadarOdometry::raw_vx() const {
   return raw_vx_;
 }
 inline void ZadarOdometry::set_raw_vx(float value) {
-  
+
   raw_vx_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.raw_vx)
 }
@@ -2410,7 +2431,7 @@ inline float ZadarOdometry::raw_vy() const {
   return raw_vy_;
 }
 inline void ZadarOdometry::set_raw_vy(float value) {
-  
+
   raw_vy_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.raw_vy)
 }
@@ -2424,7 +2445,7 @@ inline ::google::protobuf::uint32 ZadarOdometry::frame_num() const {
   return frame_num_;
 }
 inline void ZadarOdometry::set_frame_num(::google::protobuf::uint32 value) {
-  
+
   frame_num_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.frame_num)
 }
@@ -2438,7 +2459,7 @@ inline float ZadarOdometry::raw_vz() const {
   return raw_vz_;
 }
 inline void ZadarOdometry::set_raw_vz(float value) {
-  
+
   raw_vz_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.raw_vz)
 }
@@ -2452,7 +2473,7 @@ inline float ZadarOdometry::omega_x() const {
   return omega_x_;
 }
 inline void ZadarOdometry::set_omega_x(float value) {
-  
+
   omega_x_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.omega_x)
 }
@@ -2466,7 +2487,7 @@ inline float ZadarOdometry::omega_y() const {
   return omega_y_;
 }
 inline void ZadarOdometry::set_omega_y(float value) {
-  
+
   omega_y_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.omega_y)
 }
@@ -2480,7 +2501,7 @@ inline float ZadarOdometry::omega_z() const {
   return omega_z_;
 }
 inline void ZadarOdometry::set_omega_z(float value) {
-  
+
   omega_z_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.omega_z)
 }
@@ -2494,7 +2515,7 @@ inline float ZadarOdometry::vx() const {
   return vx_;
 }
 inline void ZadarOdometry::set_vx(float value) {
-  
+
   vx_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.vx)
 }
@@ -2508,7 +2529,7 @@ inline float ZadarOdometry::vy() const {
   return vy_;
 }
 inline void ZadarOdometry::set_vy(float value) {
-  
+
   vy_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.vy)
 }
@@ -2522,7 +2543,7 @@ inline float ZadarOdometry::vz() const {
   return vz_;
 }
 inline void ZadarOdometry::set_vz(float value) {
-  
+
   vz_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.vz)
 }
@@ -2536,7 +2557,7 @@ inline ::google::protobuf::uint64 ZadarOdometry::stamp() const {
   return stamp_;
 }
 inline void ZadarOdometry::set_stamp(::google::protobuf::uint64 value) {
-  
+
   stamp_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarOdometry.stamp)
 }
@@ -2554,7 +2575,7 @@ inline float ZadarVertex::x() const {
   return x_;
 }
 inline void ZadarVertex::set_x(float value) {
-  
+
   x_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarVertex.x)
 }
@@ -2568,7 +2589,7 @@ inline float ZadarVertex::y() const {
   return y_;
 }
 inline void ZadarVertex::set_y(float value) {
-  
+
   y_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarVertex.y)
 }
@@ -2582,7 +2603,7 @@ inline float ZadarVertex::z() const {
   return z_;
 }
 inline void ZadarVertex::set_z(float value) {
-  
+
   z_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarVertex.z)
 }
@@ -2630,7 +2651,7 @@ inline ::google::protobuf::uint64 ZadarClusters::stamp() const {
   return stamp_;
 }
 inline void ZadarClusters::set_stamp(::google::protobuf::uint64 value) {
-  
+
   stamp_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarClusters.stamp)
 }
@@ -2678,7 +2699,7 @@ inline ::google::protobuf::uint32 ZadarTracks::frame_num() const {
   return frame_num_;
 }
 inline void ZadarTracks::set_frame_num(::google::protobuf::uint32 value) {
-  
+
   frame_num_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTracks.frame_num)
 }
@@ -2692,7 +2713,7 @@ inline ::google::protobuf::uint64 ZadarTracks::stamp() const {
   return stamp_;
 }
 inline void ZadarTracks::set_stamp(::google::protobuf::uint64 value) {
-  
+
   stamp_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTracks.stamp)
 }
@@ -2710,7 +2731,7 @@ inline float ZadarCluster::x() const {
   return x_;
 }
 inline void ZadarCluster::set_x(float value) {
-  
+
   x_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.x)
 }
@@ -2724,7 +2745,7 @@ inline float ZadarCluster::y() const {
   return y_;
 }
 inline void ZadarCluster::set_y(float value) {
-  
+
   y_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.y)
 }
@@ -2738,7 +2759,7 @@ inline float ZadarCluster::z() const {
   return z_;
 }
 inline void ZadarCluster::set_z(float value) {
-  
+
   z_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.z)
 }
@@ -2752,7 +2773,7 @@ inline float ZadarCluster::doppler() const {
   return doppler_;
 }
 inline void ZadarCluster::set_doppler(float value) {
-  
+
   doppler_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.doppler)
 }
@@ -2766,7 +2787,7 @@ inline float ZadarCluster::snr() const {
   return snr_;
 }
 inline void ZadarCluster::set_snr(float value) {
-  
+
   snr_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.snr)
 }
@@ -2780,7 +2801,7 @@ inline float ZadarCluster::noise() const {
   return noise_;
 }
 inline void ZadarCluster::set_noise(float value) {
-  
+
   noise_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.noise)
 }
@@ -2794,7 +2815,7 @@ inline ::google::protobuf::uint32 ZadarCluster::frame_num() const {
   return frame_num_;
 }
 inline void ZadarCluster::set_frame_num(::google::protobuf::uint32 value) {
-  
+
   frame_num_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.frame_num)
 }
@@ -2808,7 +2829,7 @@ inline ::google::protobuf::uint32 ZadarCluster::cluster_id() const {
   return cluster_id_;
 }
 inline void ZadarCluster::set_cluster_id(::google::protobuf::uint32 value) {
-  
+
   cluster_id_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.cluster_id)
 }
@@ -2822,7 +2843,7 @@ inline ::google::protobuf::uint32 ZadarCluster::subframe_index() const {
   return subframe_index_;
 }
 inline void ZadarCluster::set_subframe_index(::google::protobuf::uint32 value) {
-  
+
   subframe_index_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.subframe_index)
 }
@@ -2836,7 +2857,7 @@ inline bool ZadarCluster::is_static() const {
   return is_static_;
 }
 inline void ZadarCluster::set_is_static(bool value) {
-  
+
   is_static_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.is_static)
 }
@@ -2850,7 +2871,7 @@ inline float ZadarCluster::d_min() const {
   return d_min_;
 }
 inline void ZadarCluster::set_d_min(float value) {
-  
+
   d_min_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.d_min)
 }
@@ -2864,7 +2885,7 @@ inline float ZadarCluster::d_max() const {
   return d_max_;
 }
 inline void ZadarCluster::set_d_max(float value) {
-  
+
   d_max_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.d_max)
 }
@@ -2878,7 +2899,7 @@ inline float ZadarCluster::r_min() const {
   return r_min_;
 }
 inline void ZadarCluster::set_r_min(float value) {
-  
+
   r_min_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.r_min)
 }
@@ -2892,7 +2913,7 @@ inline float ZadarCluster::r_max() const {
   return r_max_;
 }
 inline void ZadarCluster::set_r_max(float value) {
-  
+
   r_max_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.r_max)
 }
@@ -2906,7 +2927,7 @@ inline float ZadarCluster::lambda1() const {
   return lambda1_;
 }
 inline void ZadarCluster::set_lambda1(float value) {
-  
+
   lambda1_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.lambda1)
 }
@@ -2920,7 +2941,7 @@ inline float ZadarCluster::lambda2() const {
   return lambda2_;
 }
 inline void ZadarCluster::set_lambda2(float value) {
-  
+
   lambda2_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.lambda2)
 }
@@ -2934,7 +2955,7 @@ inline float ZadarCluster::lambda3() const {
   return lambda3_;
 }
 inline void ZadarCluster::set_lambda3(float value) {
-  
+
   lambda3_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.lambda3)
 }
@@ -2948,7 +2969,7 @@ inline ::google::protobuf::uint32 ZadarCluster::num_points() const {
   return num_points_;
 }
 inline void ZadarCluster::set_num_points(::google::protobuf::uint32 value) {
-  
+
   num_points_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarCluster.num_points)
 }
@@ -3004,13 +3025,13 @@ inline const ::zadar_pb::RadarScan& ZadarCluster::scan() const {
 }
 inline ::zadar_pb::RadarScan* ZadarCluster::release_scan() {
   // @@protoc_insertion_point(field_release:zadar_pb.ZadarCluster.scan)
-  
+
   ::zadar_pb::RadarScan* temp = scan_;
   scan_ = NULL;
   return temp;
 }
 inline ::zadar_pb::RadarScan* ZadarCluster::mutable_scan() {
-  
+
   if (scan_ == NULL) {
     auto* p = CreateMaybeMessage<::zadar_pb::RadarScan>(GetArenaNoVirtual());
     scan_ = p;
@@ -3029,9 +3050,9 @@ inline void ZadarCluster::set_allocated_scan(::zadar_pb::RadarScan* scan) {
       scan = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, scan, submessage_arena);
     }
-    
+
   } else {
-    
+
   }
   scan_ = scan;
   // @@protoc_insertion_point(field_set_allocated:zadar_pb.ZadarCluster.scan)
@@ -3050,7 +3071,7 @@ inline ::google::protobuf::uint32 ZadarTrack::track_id() const {
   return track_id_;
 }
 inline void ZadarTrack::set_track_id(::google::protobuf::uint32 value) {
-  
+
   track_id_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.track_id)
 }
@@ -3064,7 +3085,7 @@ inline float ZadarTrack::x() const {
   return x_;
 }
 inline void ZadarTrack::set_x(float value) {
-  
+
   x_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.x)
 }
@@ -3078,7 +3099,7 @@ inline float ZadarTrack::y() const {
   return y_;
 }
 inline void ZadarTrack::set_y(float value) {
-  
+
   y_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.y)
 }
@@ -3092,7 +3113,7 @@ inline float ZadarTrack::z() const {
   return z_;
 }
 inline void ZadarTrack::set_z(float value) {
-  
+
   z_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.z)
 }
@@ -3106,7 +3127,7 @@ inline float ZadarTrack::vx() const {
   return vx_;
 }
 inline void ZadarTrack::set_vx(float value) {
-  
+
   vx_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.vx)
 }
@@ -3120,7 +3141,7 @@ inline float ZadarTrack::vy() const {
   return vy_;
 }
 inline void ZadarTrack::set_vy(float value) {
-  
+
   vy_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.vy)
 }
@@ -3134,7 +3155,7 @@ inline float ZadarTrack::vz() const {
   return vz_;
 }
 inline void ZadarTrack::set_vz(float value) {
-  
+
   vz_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.vz)
 }
@@ -3148,7 +3169,7 @@ inline float ZadarTrack::ax() const {
   return ax_;
 }
 inline void ZadarTrack::set_ax(float value) {
-  
+
   ax_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.ax)
 }
@@ -3162,7 +3183,7 @@ inline float ZadarTrack::ay() const {
   return ay_;
 }
 inline void ZadarTrack::set_ay(float value) {
-  
+
   ay_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.ay)
 }
@@ -3176,7 +3197,7 @@ inline float ZadarTrack::az() const {
   return az_;
 }
 inline void ZadarTrack::set_az(float value) {
-  
+
   az_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.az)
 }
@@ -3190,7 +3211,7 @@ inline float ZadarTrack::yaw() const {
   return yaw_;
 }
 inline void ZadarTrack::set_yaw(float value) {
-  
+
   yaw_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.yaw)
 }
@@ -3204,7 +3225,7 @@ inline float ZadarTrack::speed() const {
   return speed_;
 }
 inline void ZadarTrack::set_speed(float value) {
-  
+
   speed_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.speed)
 }
@@ -3218,7 +3239,7 @@ inline ::google::protobuf::uint32 ZadarTrack::num_points() const {
   return num_points_;
 }
 inline void ZadarTrack::set_num_points(::google::protobuf::uint32 value) {
-  
+
   num_points_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.num_points)
 }
@@ -3232,7 +3253,7 @@ inline ::google::protobuf::uint32 ZadarTrack::latest_observed_frame_num() const 
   return latest_observed_frame_num_;
 }
 inline void ZadarTrack::set_latest_observed_frame_num(::google::protobuf::uint32 value) {
-  
+
   latest_observed_frame_num_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.latest_observed_frame_num)
 }
@@ -3246,7 +3267,7 @@ inline ::google::protobuf::uint32 ZadarTrack::latest_cluster_id() const {
   return latest_cluster_id_;
 }
 inline void ZadarTrack::set_latest_cluster_id(::google::protobuf::uint32 value) {
-  
+
   latest_cluster_id_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.latest_cluster_id)
 }
@@ -3260,7 +3281,7 @@ inline ::google::protobuf::uint32 ZadarTrack::fence_id() const {
   return fence_id_;
 }
 inline void ZadarTrack::set_fence_id(::google::protobuf::uint32 value) {
-  
+
   fence_id_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.fence_id)
 }
@@ -3274,7 +3295,7 @@ inline ::google::protobuf::uint32 ZadarTrack::state() const {
   return state_;
 }
 inline void ZadarTrack::set_state(::google::protobuf::uint32 value) {
-  
+
   state_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.state)
 }
@@ -3300,13 +3321,13 @@ inline const ::zadar_pb::RadarScan& ZadarTrack::scan() const {
 }
 inline ::zadar_pb::RadarScan* ZadarTrack::release_scan() {
   // @@protoc_insertion_point(field_release:zadar_pb.ZadarTrack.scan)
-  
+
   ::zadar_pb::RadarScan* temp = scan_;
   scan_ = NULL;
   return temp;
 }
 inline ::zadar_pb::RadarScan* ZadarTrack::mutable_scan() {
-  
+
   if (scan_ == NULL) {
     auto* p = CreateMaybeMessage<::zadar_pb::RadarScan>(GetArenaNoVirtual());
     scan_ = p;
@@ -3325,9 +3346,9 @@ inline void ZadarTrack::set_allocated_scan(::zadar_pb::RadarScan* scan) {
       scan = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, scan, submessage_arena);
     }
-    
+
   } else {
-    
+
   }
   scan_ = scan;
   // @@protoc_insertion_point(field_set_allocated:zadar_pb.ZadarTrack.scan)
@@ -3342,7 +3363,7 @@ inline ::google::protobuf::uint32 ZadarTrack::classification_output() const {
   return classification_output_;
 }
 inline void ZadarTrack::set_classification_output(::google::protobuf::uint32 value) {
-  
+
   classification_output_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarTrack.classification_output)
 }
@@ -3372,13 +3393,13 @@ inline const ::zadar_pb::ZadarOdometry& ZadarFrame::odometry() const {
 }
 inline ::zadar_pb::ZadarOdometry* ZadarFrame::release_odometry() {
   // @@protoc_insertion_point(field_release:zadar_pb.ZadarFrame.odometry)
-  
+
   ::zadar_pb::ZadarOdometry* temp = odometry_;
   odometry_ = NULL;
   return temp;
 }
 inline ::zadar_pb::ZadarOdometry* ZadarFrame::mutable_odometry() {
-  
+
   if (odometry_ == NULL) {
     auto* p = CreateMaybeMessage<::zadar_pb::ZadarOdometry>(GetArenaNoVirtual());
     odometry_ = p;
@@ -3397,9 +3418,9 @@ inline void ZadarFrame::set_allocated_odometry(::zadar_pb::ZadarOdometry* odomet
       odometry = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, odometry, submessage_arena);
     }
-    
+
   } else {
-    
+
   }
   odometry_ = odometry;
   // @@protoc_insertion_point(field_set_allocated:zadar_pb.ZadarFrame.odometry)
@@ -3426,13 +3447,13 @@ inline const ::zadar_pb::RadarScan& ZadarFrame::radar_scan() const {
 }
 inline ::zadar_pb::RadarScan* ZadarFrame::release_radar_scan() {
   // @@protoc_insertion_point(field_release:zadar_pb.ZadarFrame.radar_scan)
-  
+
   ::zadar_pb::RadarScan* temp = radar_scan_;
   radar_scan_ = NULL;
   return temp;
 }
 inline ::zadar_pb::RadarScan* ZadarFrame::mutable_radar_scan() {
-  
+
   if (radar_scan_ == NULL) {
     auto* p = CreateMaybeMessage<::zadar_pb::RadarScan>(GetArenaNoVirtual());
     radar_scan_ = p;
@@ -3451,9 +3472,9 @@ inline void ZadarFrame::set_allocated_radar_scan(::zadar_pb::RadarScan* radar_sc
       radar_scan = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, radar_scan, submessage_arena);
     }
-    
+
   } else {
-    
+
   }
   radar_scan_ = radar_scan;
   // @@protoc_insertion_point(field_set_allocated:zadar_pb.ZadarFrame.radar_scan)
@@ -3544,13 +3565,13 @@ inline const ::zadar_pb::RadarScanHeader& ZadarImu::header() const {
 }
 inline ::zadar_pb::RadarScanHeader* ZadarImu::release_header() {
   // @@protoc_insertion_point(field_release:zadar_pb.ZadarImu.header)
-  
+
   ::zadar_pb::RadarScanHeader* temp = header_;
   header_ = NULL;
   return temp;
 }
 inline ::zadar_pb::RadarScanHeader* ZadarImu::mutable_header() {
-  
+
   if (header_ == NULL) {
     auto* p = CreateMaybeMessage<::zadar_pb::RadarScanHeader>(GetArenaNoVirtual());
     header_ = p;
@@ -3569,9 +3590,9 @@ inline void ZadarImu::set_allocated_header(::zadar_pb::RadarScanHeader* header) 
       header = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, header, submessage_arena);
     }
-    
+
   } else {
-    
+
   }
   header_ = header;
   // @@protoc_insertion_point(field_set_allocated:zadar_pb.ZadarImu.header)
@@ -3586,7 +3607,7 @@ inline double ZadarImu::linear_acceleration_x() const {
   return linear_acceleration_x_;
 }
 inline void ZadarImu::set_linear_acceleration_x(double value) {
-  
+
   linear_acceleration_x_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.linear_acceleration_x)
 }
@@ -3600,7 +3621,7 @@ inline double ZadarImu::linear_acceleration_y() const {
   return linear_acceleration_y_;
 }
 inline void ZadarImu::set_linear_acceleration_y(double value) {
-  
+
   linear_acceleration_y_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.linear_acceleration_y)
 }
@@ -3614,7 +3635,7 @@ inline double ZadarImu::linear_acceleration_z() const {
   return linear_acceleration_z_;
 }
 inline void ZadarImu::set_linear_acceleration_z(double value) {
-  
+
   linear_acceleration_z_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.linear_acceleration_z)
 }
@@ -3628,7 +3649,7 @@ inline double ZadarImu::gyro_acceleration_x() const {
   return gyro_acceleration_x_;
 }
 inline void ZadarImu::set_gyro_acceleration_x(double value) {
-  
+
   gyro_acceleration_x_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.gyro_acceleration_x)
 }
@@ -3642,7 +3663,7 @@ inline double ZadarImu::gyro_acceleration_y() const {
   return gyro_acceleration_y_;
 }
 inline void ZadarImu::set_gyro_acceleration_y(double value) {
-  
+
   gyro_acceleration_y_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.gyro_acceleration_y)
 }
@@ -3656,7 +3677,7 @@ inline double ZadarImu::gyro_acceleration_z() const {
   return gyro_acceleration_z_;
 }
 inline void ZadarImu::set_gyro_acceleration_z(double value) {
-  
+
   gyro_acceleration_z_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.gyro_acceleration_z)
 }
@@ -3670,7 +3691,7 @@ inline double ZadarImu::temperature_celsius() const {
   return temperature_celsius_;
 }
 inline void ZadarImu::set_temperature_celsius(double value) {
-  
+
   temperature_celsius_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.temperature_celsius)
 }
@@ -3684,7 +3705,7 @@ inline ::google::protobuf::uint64 ZadarImu::imu_diag_ts() const {
   return imu_diag_ts_;
 }
 inline void ZadarImu::set_imu_diag_ts(::google::protobuf::uint64 value) {
-  
+
   imu_diag_ts_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.imu_diag_ts)
 }
@@ -3698,7 +3719,7 @@ inline ::google::protobuf::uint64 ZadarImu::imu_accel_ts() const {
   return imu_accel_ts_;
 }
 inline void ZadarImu::set_imu_accel_ts(::google::protobuf::uint64 value) {
-  
+
   imu_accel_ts_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.imu_accel_ts)
 }
@@ -3712,7 +3733,7 @@ inline ::google::protobuf::uint64 ZadarImu::imu_gyro_ts() const {
   return imu_gyro_ts_;
 }
 inline void ZadarImu::set_imu_gyro_ts(::google::protobuf::uint64 value) {
-  
+
   imu_gyro_ts_ = value;
   // @@protoc_insertion_point(field_set:zadar_pb.ZadarImu.imu_gyro_ts)
 }

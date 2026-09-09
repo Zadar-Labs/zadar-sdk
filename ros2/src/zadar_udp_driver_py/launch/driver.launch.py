@@ -95,7 +95,7 @@ def generate_launch_description() -> LaunchDescription:
         DeclareLaunchArgument("data_port", default_value="0"),
         DeclareLaunchArgument("imu_port", default_value="0"),
         DeclareLaunchArgument("webapi_port", default_value="8080"),
-        DeclareLaunchArgument("webapi_timeout_sec", default_value="2.0"),
+        DeclareLaunchArgument("webapi_timeout_sec", default_value="5.0"),
         DeclareLaunchArgument("running_mode", default_value="-1"),
         DeclareLaunchArgument("frame_id", default_value=""),
         DeclareLaunchArgument("publish_scan", default_value="true"),

@@ -404,6 +404,9 @@ Examples:
 - `/zadar/front/points`
 - `/zadar/rear/imu`
 
+The `points` topic includes the decoded radar point fields, including `rcs`
+when the selected sensor mode has RCS enabled.
+
 ## 9. Parameter Summary
 
 Common driver parameters include:

@@ -23,6 +23,11 @@ embedding numeric device IDs directly in topic names.
 - `points`: `sensor_msgs/PointCloud2`
 - `imu`: `sensor_msgs/Imu`
 
+PointCloud2 point fields include `x`, `y`, `z`, `snr`, `range`, `noise`,
+`doppler`, `adjusted_doppler`, `frame_num`, `is_static`, `removed`,
+`subframe_index`, `fence_id`, `power`, and `rcs`. RCS values are populated
+when the sensor mode has RCS enabled.
+
 `imu` is the raw onboard accelerometer and gyroscope stream from the internal
 MEMS sensor. It is intended for low-level inspection and installation
 validation, and it is not a GNSS/INS output. No GNSS/GPS data is used or

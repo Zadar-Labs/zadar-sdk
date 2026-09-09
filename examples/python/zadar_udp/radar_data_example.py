@@ -24,7 +24,7 @@ def _print_sample_points(points, sample_count: int) -> None:
     for index, point in enumerate(sample_points, 1):
         print(
             f"  Pt{index}: x={point.x:.3f}, y={point.y:.3f}, z={point.z:.3f}, "
-            f"doppler={point.doppler:.3f}, snr={point.snr:.3f}"
+            f"doppler={point.doppler:.3f}, snr={point.snr:.3f}, rcs={point.rcs:.3f}"
         )
 
 
