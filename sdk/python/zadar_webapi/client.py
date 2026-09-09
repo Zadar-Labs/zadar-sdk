@@ -24,7 +24,7 @@ class ZadarWebApiClient:
         *,
         port: int = 8080,
         api_prefix: str = "/api/v1",
-        timeout_sec: float = 2.0,
+        timeout_sec: float = 5.0,
         session: Optional[requests.Session] = None,
     ) -> None:
         self._sensor_host = sensor_host.strip()
@@ -167,7 +167,7 @@ class ZadarWebApiClient:
     def reset_imu_port(self) -> ApiResponse:
         return self._request("DELETE", "system/output_destination/imu/port")
 
-    def get_running_mode(self, *, timeout_sec: float = 1.0) -> ApiResponse:
+    def get_running_mode(self, *, timeout_sec: float = 5.0) -> ApiResponse:
         return self._request("GET", "device/running_mode", timeout_sec=timeout_sec)
 
     def set_running_mode(self, mode: int) -> ApiResponse:

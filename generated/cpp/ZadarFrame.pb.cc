@@ -288,6 +288,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zadar_pb::RadarPoint, subframe_index_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zadar_pb::RadarPoint, fence_id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zadar_pb::RadarPoint, power_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zadar_pb::RadarPoint, rcs_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zadar_pb::RadarScanHeader, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -425,16 +426,16 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::zadar_pb::RadarPoint)},
-  { 19, -1, sizeof(::zadar_pb::RadarScanHeader)},
-  { 27, -1, sizeof(::zadar_pb::RadarScan)},
-  { 37, -1, sizeof(::zadar_pb::ZadarOdometry)},
-  { 56, -1, sizeof(::zadar_pb::ZadarVertex)},
-  { 64, -1, sizeof(::zadar_pb::ZadarClusters)},
-  { 71, -1, sizeof(::zadar_pb::ZadarTracks)},
-  { 79, -1, sizeof(::zadar_pb::ZadarCluster)},
-  { 104, -1, sizeof(::zadar_pb::ZadarTrack)},
-  { 128, -1, sizeof(::zadar_pb::ZadarFrame)},
-  { 137, -1, sizeof(::zadar_pb::ZadarImu)},
+  { 20, -1, sizeof(::zadar_pb::RadarScanHeader)},
+  { 28, -1, sizeof(::zadar_pb::RadarScan)},
+  { 38, -1, sizeof(::zadar_pb::ZadarOdometry)},
+  { 57, -1, sizeof(::zadar_pb::ZadarVertex)},
+  { 65, -1, sizeof(::zadar_pb::ZadarClusters)},
+  { 72, -1, sizeof(::zadar_pb::ZadarTracks)},
+  { 80, -1, sizeof(::zadar_pb::ZadarCluster)},
+  { 105, -1, sizeof(::zadar_pb::ZadarTrack)},
+  { 129, -1, sizeof(::zadar_pb::ZadarFrame)},
+  { 138, -1, sizeof(::zadar_pb::ZadarImu)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -472,65 +473,65 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\020ZadarFrame.proto\022\010zadar_pb\"\363\001\n\nRadarPo"
+      "\n\020ZadarFrame.proto\022\010zadar_pb\"\200\002\n\nRadarPo"
       "int\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\013\n\003"
       "snr\030\004 \001(\002\022\r\n\005range\030\005 \001(\002\022\r\n\005noise\030\006 \001(\002\022"
       "\017\n\007doppler\030\007 \001(\002\022\030\n\020adjusted_doppler\030\010 \001"
       "(\002\022\021\n\tframe_num\030\t \001(\r\022\021\n\tis_static\030\n \001(\010"
       "\022\017\n\007removed\030\013 \001(\010\022\026\n\016subframe_index\030\014 \001("
-      "\r\022\020\n\010fence_id\030\r \001(\r\022\r\n\005power\030\016 \001(\002\"\?\n\017Ra"
-      "darScanHeader\022\013\n\003seq\030\001 \001(\r\022\r\n\005stamp\030\002 \001("
-      "\004\022\020\n\010frame_id\030\003 \001(\t\"\215\001\n\tRadarScan\022)\n\006hea"
-      "der\030\001 \001(\0132\031.zadar_pb.RadarScanHeader\022$\n\006"
-      "points\030\002 \003(\0132\024.zadar_pb.RadarPoint\022\r\n\005wi"
-      "dth\030\003 \001(\004\022\016\n\006height\030\004 \001(\004\022\020\n\010is_dense\030\005 "
-      "\001(\010\"\213\002\n\rZadarOdometry\022\013\n\003phi\030\004 \001(\002\022\013\n\003ps"
-      "i\030\005 \001(\002\022\r\n\005theta\030\006 \001(\002\022\016\n\006raw_vx\030\007 \001(\002\022\016"
-      "\n\006raw_vy\030\010 \001(\002\022\021\n\tframe_num\030\r \001(\r\022\016\n\006raw"
-      "_vz\030\016 \001(\002\022\017\n\007omega_x\030\017 \001(\002\022\017\n\007omega_y\030\020 "
-      "\001(\002\022\017\n\007omega_z\030\021 \001(\002\022\n\n\002vx\030\022 \001(\002\022\n\n\002vy\030\023"
-      " \001(\002\022\n\n\002vz\030\024 \001(\002\022\r\n\005stamp\030\025 \001(\004J\004\010\001\020\002J\004\010"
-      "\002\020\003J\004\010\003\020\004J\004\010\t\020\nJ\004\010\n\020\013J\004\010\013\020\014J\004\010\014\020\r\".\n\013Zad"
-      "arVertex\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001("
-      "\002\"H\n\rZadarClusters\022(\n\010clusters\030\001 \003(\0132\026.z"
-      "adar_pb.ZadarCluster\022\r\n\005stamp\030\002 \001(\004\"U\n\013Z"
-      "adarTracks\022$\n\006tracks\030\001 \003(\0132\024.zadar_pb.Za"
-      "darTrack\022\021\n\tframe_num\030\002 \001(\r\022\r\n\005stamp\030\003 \001"
-      "(\004\"\375\002\n\014ZadarCluster\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001("
-      "\002\022\t\n\001z\030\003 \001(\002\022\017\n\007doppler\030\004 \001(\002\022\013\n\003snr\030\005 \001"
-      "(\002\022\r\n\005noise\030\006 \001(\002\022\021\n\tframe_num\030\007 \001(\r\022\022\n\n"
-      "cluster_id\030\010 \001(\r\022\026\n\016subframe_index\030\t \001(\r"
-      "\022\021\n\tis_static\030\n \001(\010\022\r\n\005d_min\030\013 \001(\002\022\r\n\005d_"
-      "max\030\014 \001(\002\022\r\n\005r_min\030\r \001(\002\022\r\n\005r_max\030\016 \001(\002\022"
-      "\017\n\007lambda1\030\017 \001(\002\022\017\n\007lambda2\030\020 \001(\002\022\017\n\007lam"
-      "bda3\030\021 \001(\002\022\022\n\nnum_points\030\022 \001(\r\022\'\n\010vertic"
-      "es\030\023 \003(\0132\025.zadar_pb.ZadarVertex\022!\n\004scan\030"
-      "\024 \001(\0132\023.zadar_pb.RadarScan\"\330\002\n\nZadarTrac"
-      "k\022\020\n\010track_id\030\001 \001(\r\022\t\n\001x\030\002 \001(\002\022\t\n\001y\030\003 \001("
-      "\002\022\t\n\001z\030\004 \001(\002\022\n\n\002vx\030\005 \001(\002\022\n\n\002vy\030\006 \001(\002\022\n\n\002"
-      "vz\030\007 \001(\002\022\n\n\002ax\030\010 \001(\002\022\n\n\002ay\030\t \001(\002\022\n\n\002az\030\n"
-      " \001(\002\022\013\n\003yaw\030\013 \001(\002\022\r\n\005speed\030\014 \001(\002\022\022\n\nnum_"
-      "points\030\r \001(\r\022!\n\031latest_observed_frame_nu"
-      "m\030\016 \001(\r\022\031\n\021latest_cluster_id\030\017 \001(\r\022\020\n\010fe"
-      "nce_id\030\020 \001(\r\022\r\n\005state\030\021 \001(\r\022!\n\004scan\030\022 \001("
-      "\0132\023.zadar_pb.RadarScan\022\035\n\025classification"
-      "_output\030\023 \001(\r\"\260\001\n\nZadarFrame\022)\n\010odometry"
-      "\030\001 \001(\0132\027.zadar_pb.ZadarOdometry\022\'\n\nradar"
-      "_scan\030\002 \001(\0132\023.zadar_pb.RadarScan\022(\n\010clus"
-      "ters\030\003 \003(\0132\026.zadar_pb.ZadarCluster\022$\n\006tr"
-      "acks\030\004 \003(\0132\024.zadar_pb.ZadarTrack\"\306\002\n\010Zad"
-      "arImu\022)\n\006header\030\001 \001(\0132\031.zadar_pb.RadarSc"
-      "anHeader\022\035\n\025linear_acceleration_x\030\002 \001(\001\022"
-      "\035\n\025linear_acceleration_y\030\003 \001(\001\022\035\n\025linear"
-      "_acceleration_z\030\004 \001(\001\022\033\n\023gyro_accelerati"
-      "on_x\030\005 \001(\001\022\033\n\023gyro_acceleration_y\030\006 \001(\001\022"
-      "\033\n\023gyro_acceleration_z\030\007 \001(\001\022\033\n\023temperat"
-      "ure_celsius\030\010 \001(\001\022\023\n\013imu_diag_ts\030\t \001(\004\022\024"
-      "\n\014imu_accel_ts\030\n \001(\004\022\023\n\013imu_gyro_ts\030\013 \001("
-      "\004b\006proto3"
+      "\r\022\020\n\010fence_id\030\r \001(\r\022\r\n\005power\030\016 \001(\002\022\013\n\003rc"
+      "s\030\017 \001(\002\"\?\n\017RadarScanHeader\022\013\n\003seq\030\001 \001(\r\022"
+      "\r\n\005stamp\030\002 \001(\004\022\020\n\010frame_id\030\003 \001(\t\"\215\001\n\tRad"
+      "arScan\022)\n\006header\030\001 \001(\0132\031.zadar_pb.RadarS"
+      "canHeader\022$\n\006points\030\002 \003(\0132\024.zadar_pb.Rad"
+      "arPoint\022\r\n\005width\030\003 \001(\004\022\016\n\006height\030\004 \001(\004\022\020"
+      "\n\010is_dense\030\005 \001(\010\"\213\002\n\rZadarOdometry\022\013\n\003ph"
+      "i\030\004 \001(\002\022\013\n\003psi\030\005 \001(\002\022\r\n\005theta\030\006 \001(\002\022\016\n\006r"
+      "aw_vx\030\007 \001(\002\022\016\n\006raw_vy\030\010 \001(\002\022\021\n\tframe_num"
+      "\030\r \001(\r\022\016\n\006raw_vz\030\016 \001(\002\022\017\n\007omega_x\030\017 \001(\002\022"
+      "\017\n\007omega_y\030\020 \001(\002\022\017\n\007omega_z\030\021 \001(\002\022\n\n\002vx\030"
+      "\022 \001(\002\022\n\n\002vy\030\023 \001(\002\022\n\n\002vz\030\024 \001(\002\022\r\n\005stamp\030\025"
+      " \001(\004J\004\010\001\020\002J\004\010\002\020\003J\004\010\003\020\004J\004\010\t\020\nJ\004\010\n\020\013J\004\010\013\020\014"
+      "J\004\010\014\020\r\".\n\013ZadarVertex\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 "
+      "\001(\002\022\t\n\001z\030\003 \001(\002\"H\n\rZadarClusters\022(\n\010clust"
+      "ers\030\001 \003(\0132\026.zadar_pb.ZadarCluster\022\r\n\005sta"
+      "mp\030\002 \001(\004\"U\n\013ZadarTracks\022$\n\006tracks\030\001 \003(\0132"
+      "\024.zadar_pb.ZadarTrack\022\021\n\tframe_num\030\002 \001(\r"
+      "\022\r\n\005stamp\030\003 \001(\004\"\375\002\n\014ZadarCluster\022\t\n\001x\030\001 "
+      "\001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\017\n\007doppler\030\004 \001"
+      "(\002\022\013\n\003snr\030\005 \001(\002\022\r\n\005noise\030\006 \001(\002\022\021\n\tframe_"
+      "num\030\007 \001(\r\022\022\n\ncluster_id\030\010 \001(\r\022\026\n\016subfram"
+      "e_index\030\t \001(\r\022\021\n\tis_static\030\n \001(\010\022\r\n\005d_mi"
+      "n\030\013 \001(\002\022\r\n\005d_max\030\014 \001(\002\022\r\n\005r_min\030\r \001(\002\022\r\n"
+      "\005r_max\030\016 \001(\002\022\017\n\007lambda1\030\017 \001(\002\022\017\n\007lambda2"
+      "\030\020 \001(\002\022\017\n\007lambda3\030\021 \001(\002\022\022\n\nnum_points\030\022 "
+      "\001(\r\022\'\n\010vertices\030\023 \003(\0132\025.zadar_pb.ZadarVe"
+      "rtex\022!\n\004scan\030\024 \001(\0132\023.zadar_pb.RadarScan\""
+      "\330\002\n\nZadarTrack\022\020\n\010track_id\030\001 \001(\r\022\t\n\001x\030\002 "
+      "\001(\002\022\t\n\001y\030\003 \001(\002\022\t\n\001z\030\004 \001(\002\022\n\n\002vx\030\005 \001(\002\022\n\n"
+      "\002vy\030\006 \001(\002\022\n\n\002vz\030\007 \001(\002\022\n\n\002ax\030\010 \001(\002\022\n\n\002ay\030"
+      "\t \001(\002\022\n\n\002az\030\n \001(\002\022\013\n\003yaw\030\013 \001(\002\022\r\n\005speed\030"
+      "\014 \001(\002\022\022\n\nnum_points\030\r \001(\r\022!\n\031latest_obse"
+      "rved_frame_num\030\016 \001(\r\022\031\n\021latest_cluster_i"
+      "d\030\017 \001(\r\022\020\n\010fence_id\030\020 \001(\r\022\r\n\005state\030\021 \001(\r"
+      "\022!\n\004scan\030\022 \001(\0132\023.zadar_pb.RadarScan\022\035\n\025c"
+      "lassification_output\030\023 \001(\r\"\260\001\n\nZadarFram"
+      "e\022)\n\010odometry\030\001 \001(\0132\027.zadar_pb.ZadarOdom"
+      "etry\022\'\n\nradar_scan\030\002 \001(\0132\023.zadar_pb.Rada"
+      "rScan\022(\n\010clusters\030\003 \003(\0132\026.zadar_pb.Zadar"
+      "Cluster\022$\n\006tracks\030\004 \003(\0132\024.zadar_pb.Zadar"
+      "Track\"\306\002\n\010ZadarImu\022)\n\006header\030\001 \001(\0132\031.zad"
+      "ar_pb.RadarScanHeader\022\035\n\025linear_accelera"
+      "tion_x\030\002 \001(\001\022\035\n\025linear_acceleration_y\030\003 "
+      "\001(\001\022\035\n\025linear_acceleration_z\030\004 \001(\001\022\033\n\023gy"
+      "ro_acceleration_x\030\005 \001(\001\022\033\n\023gyro_accelera"
+      "tion_y\030\006 \001(\001\022\033\n\023gyro_acceleration_z\030\007 \001("
+      "\001\022\033\n\023temperature_celsius\030\010 \001(\001\022\023\n\013imu_di"
+      "ag_ts\030\t \001(\004\022\024\n\014imu_accel_ts\030\n \001(\004\022\023\n\013imu"
+      "_gyro_ts\030\013 \001(\004b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2209);
+      descriptor, 2222);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ZadarFrame.proto", &protobuf_RegisterTypes);
 }
@@ -567,6 +568,7 @@ const int RadarPoint::kRemovedFieldNumber;
 const int RadarPoint::kSubframeIndexFieldNumber;
 const int RadarPoint::kFenceIdFieldNumber;
 const int RadarPoint::kPowerFieldNumber;
+const int RadarPoint::kRcsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RadarPoint::RadarPoint()
@@ -581,15 +583,15 @@ RadarPoint::RadarPoint(const RadarPoint& from)
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&x_, &from.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&power_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(power_));
+    static_cast<size_t>(reinterpret_cast<char*>(&rcs_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(rcs_));
   // @@protoc_insertion_point(copy_constructor:zadar_pb.RadarPoint)
 }
 
 void RadarPoint::SharedCtor() {
   ::memset(&x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&power_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(power_));
+      reinterpret_cast<char*>(&rcs_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(rcs_));
 }
 
 RadarPoint::~RadarPoint() {
@@ -621,8 +623,8 @@ void RadarPoint::Clear() {
   (void) cached_has_bits;
 
   ::memset(&x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&power_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(power_));
+      reinterpret_cast<char*>(&rcs_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(rcs_));
   _internal_metadata_.Clear();
 }
 
@@ -832,6 +834,20 @@ bool RadarPoint::MergePartialFromCodedStream(
         break;
       }
 
+      // float rcs = 15;
+      case 15: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(125u /* 125 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &rcs_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -928,6 +944,11 @@ void RadarPoint::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(14, this->power(), output);
   }
 
+  // float rcs = 15;
+  if (this->rcs() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(15, this->rcs(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1010,6 +1031,11 @@ void RadarPoint::SerializeWithCachedSizes(
   // float power = 14;
   if (this->power() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(14, this->power(), target);
+  }
+
+  // float rcs = 15;
+  if (this->rcs() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(15, this->rcs(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1105,6 +1131,11 @@ size_t RadarPoint::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
+  // float rcs = 15;
+  if (this->rcs() != 0) {
+    total_size += 1 + 4;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -1174,6 +1205,9 @@ void RadarPoint::MergeFrom(const RadarPoint& from) {
   if (from.power() != 0) {
     set_power(from.power());
   }
+  if (from.rcs() != 0) {
+    set_rcs(from.rcs());
+  }
 }
 
 void RadarPoint::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1214,6 +1248,7 @@ void RadarPoint::InternalSwap(RadarPoint* other) {
   swap(subframe_index_, other->subframe_index_);
   swap(fence_id_, other->fence_id_);
   swap(power_, other->power_);
+  swap(rcs_, other->rcs_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

@@ -33,7 +33,7 @@
 
 namespace {
 
-constexpr std::size_t kPointStep = 50U;
+constexpr std::size_t kPointStep = 54U;
 
 builtin_interfaces::msg::Time ros_time_from_ns(std::uint64_t timestamp_ns) {
   builtin_interfaces::msg::Time message;
@@ -115,6 +115,7 @@ sensor_msgs::msg::PointCloud2 radar_scan_to_pointcloud2(
       point_field("subframe_index", 38U, sensor_msgs::msg::PointField::UINT32),
       point_field("fence_id", 42U, sensor_msgs::msg::PointField::UINT32),
       point_field("power", 46U, sensor_msgs::msg::PointField::FLOAT32),
+      point_field("rcs", 50U, sensor_msgs::msg::PointField::FLOAT32),
   };
   message.point_step = kPointStep;
 
@@ -153,6 +154,7 @@ sensor_msgs::msg::PointCloud2 radar_scan_to_pointcloud2(
     const std::uint32_t subframe_index = point.subframe_index();
     const std::uint32_t fence_id = point.fence_id();
     const float power = point.power();
+    const float rcs = point.rcs();
 
     write_value(message.data, base + 0U, x);
     write_value(message.data, base + 4U, y);
@@ -168,6 +170,7 @@ sensor_msgs::msg::PointCloud2 radar_scan_to_pointcloud2(
     write_value(message.data, base + 38U, subframe_index);
     write_value(message.data, base + 42U, fence_id);
     write_value(message.data, base + 46U, power);
+    write_value(message.data, base + 50U, rcs);
   }
 
   return message;
@@ -322,7 +325,7 @@ class ZadarUdpDriverNode : public rclcpp::Node {
     declare_parameter<int>(
         "webapi_port",
         static_cast<int>(zadar::webapi::kDefaultWebApiPort));
-    declare_parameter<double>("webapi_timeout_sec", 2.0);
+    declare_parameter<double>("webapi_timeout_sec", 5.0);
     declare_parameter<int>("running_mode", -1);
     declare_parameter<std::string>("frame_id", "zadar");
     declare_parameter<bool>("publish_scan", true);
@@ -947,7 +950,7 @@ class ZadarUdpDriverNode : public rclcpp::Node {
   int running_mode_ = -1;
   double frame_timeout_sec_ = 1.0;
   double socket_timeout_sec_ = 0.0;
-  double webapi_timeout_sec_ = 2.0;
+  double webapi_timeout_sec_ = 5.0;
 
   std::unique_ptr<zadar::udp::RadarDataListener> radar_listener_;
   std::unique_ptr<zadar::udp::ImuDataListener> imu_listener_;

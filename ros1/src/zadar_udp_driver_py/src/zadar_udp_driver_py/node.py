@@ -73,7 +73,7 @@ class ZadarUdpDriverNode:
         self._requested_data_port = int(rospy.get_param("~data_port", 0))
         self._requested_imu_port = int(rospy.get_param("~imu_port", 0))
         self._webapi_port = int(rospy.get_param("~webapi_port", DEFAULT_WEBAPI_PORT))
-        self._webapi_timeout_sec = float(rospy.get_param("~webapi_timeout_sec", 2.0))
+        self._webapi_timeout_sec = float(rospy.get_param("~webapi_timeout_sec", 5.0))
         self._running_mode = int(rospy.get_param("~running_mode", -1))
         self._frame_id = str(rospy.get_param("~frame_id", "zadar"))
         self._publish_scan = bool(rospy.get_param("~publish_scan", True))

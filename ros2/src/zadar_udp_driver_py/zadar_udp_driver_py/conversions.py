@@ -33,6 +33,7 @@ POINT_FIELD_LAYOUT = [
     ("subframe_index", PointField.UINT32, "I"),
     ("fence_id", PointField.UINT32, "I"),
     ("power", PointField.FLOAT32, "f"),
+    ("rcs", PointField.FLOAT32, "f"),
 ]
 
 POINT_STRUCT = struct.Struct("<" + "".join(item[2] for item in POINT_FIELD_LAYOUT))
@@ -123,6 +124,7 @@ def radar_scan_to_pointcloud2(
             int(point.subframe_index),
             int(point.fence_id),
             float(point.power),
+            float(point.rcs),
         )
     msg.data = bytes(data)
     return msg

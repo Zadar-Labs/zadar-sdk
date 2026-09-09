@@ -19,7 +19,7 @@ class Client {
       std::string sensor_host,
       std::uint16_t port = 8080,
       std::string api_prefix = "/api/v1",
-      long timeout_ms = 2000);
+      long timeout_ms = 5000);
 
   [[nodiscard]] Response heartbeat() const;
   [[nodiscard]] Response get_device_clock() const;
@@ -42,7 +42,7 @@ class Client {
   [[nodiscard]] Response get_imu_port() const;
   [[nodiscard]] Response set_imu_port(int imu_port) const;
   [[nodiscard]] Response reset_imu_port() const;
-  [[nodiscard]] Response get_running_mode(long timeout_ms = 1000) const;
+  [[nodiscard]] Response get_running_mode(long timeout_ms = 5000) const;
   [[nodiscard]] Response set_running_mode(int mode) const;
   [[nodiscard]] Response stop_running_mode() const;
   [[nodiscard]] Response get_startup_mode() const;
